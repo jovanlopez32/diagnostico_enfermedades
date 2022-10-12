@@ -4,15 +4,43 @@
 @section('content')
 
 
+<div class="w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 ">
 
+    <div class=" w-full h-full flex flex-col items-start justify-center px-8 py-10 gap-5 lg:px-20">
+
+        <h3>UASLP</h3>
+        <h1>Sistema web para registro de pacientes con enfermedades neuro-musculares.</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque fugiat iusto praesentium error cupiditate culpa ab reiciendis libero numquam eveniet.</p>
+        <a href="#"><button class="btn-primary">Saber mas...</button></a>
+
+
+    </div>
+
+    <div class=" w-full h-full flex flex-col items-center justify-center px-8 py-10 gap-5 bg-[#fffffe]">
+
+        <h1>BIENVENIDO</h1>
+
+        <div class=" ">
+            <img src="./assets/images/illustrations/doctor_two.png" alt="">
+        </div>
+
+        <div class="flex gap-5">
+            <a href="#"><button class="btn-primary">Iniciar Sesión</button></a>
+            <a href="#"><button class="btn-secondary">Registrarse</button></a>
+        </div>
+
+
+    </div>
+
+</div>
 
 @endsection
 
 @section('scripts')
 
-    @vite(['resources/js/animation_user/home.js', 'resources/js/user/home.js'])
+    {{-- @vite(['resources/js/animation_user/home.js', 'resources/js/user/home.js']) --}}
 
-    
+
     {{-- @vite(['resources/js/navbar/navbar.js']) --}}
 
 @endsection
