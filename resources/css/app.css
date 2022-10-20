@@ -5,34 +5,46 @@
 
 @layer base {
 
+    html {
+        @apply scroll-smooth;
+    }
 
     body {
         @apply min-h-screen bg-[#eff0f3] text-[#2a2a2a];
     }
 
     h1 {
-      @apply text-4xl font-extrabold text-[#0d0d0d];
+        @apply text-2xl font-extrabold text-[#0d0d0d];
     }
     h2 {
-      @apply text-3xl font-bold text-[#0d0d0d];
+        @apply text-xl font-bold text-[#0d0d0d];
     }
     h3 {
-      @apply text-2xl font-bold text-[#0d0d0d];
+        @apply text-lg font-bold text-[#0d0d0d];
     }
-    p{
-      @apply text-lg;
+    p {
+        @apply text-base;
     }
+    label {
+        @apply font-bold text-lg my-2;
+    }
+
+
     /* ... */
   }
 
 @layer components {
 
     .btn-primary {
-        @apply px-5 py-3 rounded-md font-bold bg-[#ff8e3c] text-[#0d0d0d] hover:bg-[#3cb5ff] hover:text-[#0D0D0D] transition-all ease-linear;
+        @apply px-4 py-2 rounded-md text-sm font-semibold bg-[#ff8e3c] text-[#0d0d0d]  transition-all ease-linear;
     }
 
     .btn-secondary {
-        @apply px-5 py-3 rounded-md font-bold bg-[#ffb37c] text-[#0d0d0d] hover:bg-[#99d4ff] hover:text-[#0D0D0D] transition-all ease-linear;
+        @apply px-4 py-2 rounded-md text-sm font-semibold bg-[#ffb37c] text-[#0d0d0d]  transition-all ease-linear;
+    }
+
+    .input-form {
+        @apply rounded-md border-none text-sm;
     }
 
 }

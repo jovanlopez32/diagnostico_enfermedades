@@ -4,35 +4,52 @@
 @section('content')
 
 
-<div class="w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 ">
+<div class="w-full  grid grid-cols-1 lg:grid-cols-2 ">
 
-    <div class=" w-full h-full flex flex-col items-start justify-center px-8 py-10 gap-5 lg:px-20">
+    <div class=" w-full h-screen flex flex-col items-start justify-center px-8 py-20 gap-5 lg:px-20">
 
         <h3>UASLP</h3>
         <h1>Sistema web para registro de pacientes con enfermedades neuro-musculares.</h1>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque fugiat iusto praesentium error cupiditate culpa ab reiciendis libero numquam eveniet.</p>
-        <a href="#"><button class="btn-primary">Saber mas...</button></a>
+        <button class="modal-button btn-primary" data-modal="modal">Saber mas...</button>
 
+        <a href="#welcome"><i class='bx bx-chevron-down lg:hidden text-5xl motion-safe:animate-bounce' ></i></a>
 
     </div>
 
-    <div class=" w-full h-full flex flex-col items-center justify-center px-8 py-10 gap-5 bg-[#fffffe]">
+    <div id="welcome" class=" w-full h-screen flex flex-col items-center justify-center px-8 py-20 gap-5 bg-[#fffffe]">
 
         <h1>BIENVENIDO</h1>
 
-        <div class=" ">
-            <img src="./assets/images/illustrations/doctor_two.png" alt="">
-        </div>
+        <lord-icon
+            src="https://cdn.lordicon.com/ryxufmfd.json"
+            trigger="loop"
+            delay="2000"
+            colors="primary:#121331,secondary:#ff8e3c"
+            stroke="35"
 
-        <div class="flex gap-5">
-            <a href="#"><button class="btn-primary">Iniciar Sesión</button></a>
-            <a href="#"><button class="btn-secondary">Registrarse</button></a>
+
+            class="lg:w-[400px] lg:h-[400px] w-[200px] h-[200px]">
+        </lord-icon>
+
+        <div class="flex items-center justify-center flex-wrap gap-5">
+            <a href="{{ route('login') }}"><button class="btn-primary">Iniciar Sesión</button></a>
+            <a href="{{ route('register') }}"><button class="btn-secondary">Registrarse</button></a>
         </div>
 
 
     </div>
 
+
 </div>
+
+<div class="modal p-12" data-modal="modal" data-height="100%" data-width="100%">
+    <h1 class=" my-5">Sistema web para registro de pacientes con enfermedades neuro-musculares.</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae minus magnam maiores?
+        Labore natus expedita repellendus ex suscipit deleniti voluptatibus, eos omnis animi, odio dolorem debitis sequi, mollitia hic reprehenderit?</p>
+</div>
+
+
 
 @endsection
 

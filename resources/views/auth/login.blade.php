@@ -1,4 +1,77 @@
-<x-guest-layout>
+
+@extends('layouts.layout-master')
+@section('title', ' ')
+
+
+
+@section('content')
+
+
+
+
+
+
+<div class="min-h-screen flex flex-col items-center justify-center ">
+
+
+
+    <div class="px-8 py-20">
+
+        <div class="flex items-center gap-5">
+            <i class='bx bxs-door-open text-7xl'></i>
+            <h1>HOLA DE NUEVO!</h1>
+        </div>
+
+        <form class="flex flex-col gap-5 my-10" method="POST" action="{{ route('login') }}" >
+
+            @csrf
+
+            <div class="flex flex-col">
+                <label for="">Correo Electronico</label>
+                <input class="input-form" type="email" name="email" required>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="">Contraseña</label>
+                <input class="input-form" type="password" name="password" required>
+            </div>
+
+            <x-auth-session-status class="mb-4" :status="session('status')" />
+            <!-- Validation Errors -->
+            @include('components.auth-validation-errors')
+
+
+
+            <div class="my-5">
+                <button type="submit" class="btn-primary">Iniciar Sesion</button>
+            </div>
+
+        </form>
+
+        <p class=" text-sm ">No tienes cuenta? Registrate <a class=" text-[#ff8e3c]" href="{{ route('register') }}">aqui</a>.</p>
+        <a class=" text-sm text-[#ff8e3c]" href="{{ route('home') }}">Volver al inicio</a>
+
+    </div>
+
+
+
+</div>
+
+
+@endsection
+
+
+
+@section('scripts')
+
+    {{-- @vite(['resources/js/animation_user/home.js', 'resources/js/user/home.js']) --}}
+
+
+    {{-- @vite(['resources/js/navbar/navbar.js']) --}}
+
+@endsection
+
+{{-- <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -54,3 +127,4 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+ --}}

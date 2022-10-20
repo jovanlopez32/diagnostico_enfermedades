@@ -39,16 +39,44 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $path = null;
+        if($request->hasFile("document")){
+
+            $document = $request->file('document');
+
+            $name = 'cedula_medico_' . $request->name . '.' . $document->guessExtension();
+
+            $path = public_path('assets/cedulas_medico/' . $name);
+
+            if($document->guessExtension() == 'pdf'){
+                copy($document, $path);
+            }else{
+                exit;
+            }
+
+        }else{
+            return 'no';
+        }
+
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'document' => $path,
+            'credential' => $request->credential,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        if($request->credential == 0){
+            return redirect(RouteServiceProvider::PACIENTE);
+        } else {
+            return redirect(RouteServiceProvider::MEDICO);
+        }
+
+
     }
 }

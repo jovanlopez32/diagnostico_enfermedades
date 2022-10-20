@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +17,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+
+Route::get('user', function() {
+    return view('layouts.user');
+})->name('user');
+
 
 Route::get('/dashboard', function () {
-    return view('administrator/dashboard');
+    return view('paciente/dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/dashboard_medico', function () {
+    return view('medico/dashboard');
+})->middleware(['auth'])->name('dashboard_medico');
+
 require __DIR__.'/auth.php';
+
